@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font: 'Outfit', system-ui, sans-serif;
+
+  --sky-1: #0f2027;
+  --sky-2: #203a43;
+  --sky-3: #2c5364;
+
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-bg-hover: rgba(255, 255, 255, 0.13);
+
+  --text-primary: #f0f4ff;
+  --text-secondary: rgba(240, 244, 255, 0.65);
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.35);
+  --accent-dark: #0ea5e9;
+
+  --error: #ff6b6b;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+
+  --shadow-card: 0 24px 64px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes skyShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50%       { box-shadow: 0 0 24px 8px var(--accent-glow); }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font);
+  background: linear-gradient(135deg, var(--sky-1), var(--sky-2), var(--sky-3));
+  background-size: 400% 400%;
+  animation: skyShift 18s ease infinite;
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+#root {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.25rem 4rem;
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+h1 {
+  font-family: var(--font);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+  margin-bottom: 0.25rem;
+  animation: fadeInDown 0.6s ease both;
+}
+
+h2, h3 {
+  font-family: var(--font);
+  color: var(--text-primary);
+}
+
+p {
+  font-family: var(--font);
+}
+
+.MuiInputBase-root.MuiFilledInput-root {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font) !important;
+  transition: border-color 0.2s, background 0.2s !important;
+}
+
+.MuiInputBase-root.MuiFilledInput-root:hover {
+  background: var(--glass-bg-hover) !important;
+  border-color: var(--accent) !important;
+}
+
+.MuiInputBase-root.MuiFilledInput-root::before,
+.MuiInputBase-root.MuiFilledInput-root::after {
+  display: none !important;
+}
+
+.MuiInputBase-input.MuiFilledInput-input {
+  color: var(--text-primary) !important;
+  font-family: var(--font) !important;
+  font-size: 1rem !important;
+}
+
+.MuiFormLabel-root.MuiInputLabel-root {
+  color: var(--text-secondary) !important;
+  font-family: var(--font) !important;
+}
+
+.MuiFormLabel-root.MuiInputLabel-root.Mui-focused {
+  color: var(--accent) !important;
+}
+
+.MuiInputBase-root.MuiFilledInput-root.Mui-focused {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+.MuiButton-containedPrimary,
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark)) !important;
+  font-family: var(--font) !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.03em !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 0.65rem 2rem !important;
+  box-shadow: 0 4px 20px var(--accent-glow) !important;
+  text-transform: none !important;
+  transition: transform 0.18s, box-shadow 0.18s !important;
+}
+
+.MuiButton-containedPrimary:hover,
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 28px var(--accent-glow) !important;
+}
+
+.MuiButton-containedPrimary:active,
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained:active {
+  transform: translateY(0px) !important;
+}
+
+.MuiCard-root {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+  color: var(--text-primary) !important;
+  overflow: hidden !important;
+}
+
+.MuiCardContent-root {
+  padding: 1.5rem !important;
+}
+
+.MuiTypography-h5 {
+  font-family: var(--font) !important;
+  font-weight: 700 !important;
+  font-size: 1.6rem !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.MuiTypography-body2 {
+  font-family: var(--font) !important;
+  color: var(--text-secondary) !important;
+  font-size: 0.9rem !important;
+}
