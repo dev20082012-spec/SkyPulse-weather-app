@@ -31,12 +31,6 @@
 
 ---
 
-## 🖼️ Screenshots
-
-> _Add real screenshots here — see "Adding real screenshots" below. Left as an instruction rather than a broken image link until you do._
-
----
-
 ## 🛠️ Tech Stack
 
 | Category   | Tools |
