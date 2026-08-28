@@ -9,9 +9,15 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] })
   ],
   preview: {
-    allowedHosts: true,
+    allowedHosts: [
+      'skypulse-weather-app-vgw4.onrender.com',
+      '.onrender.com',
+    ],
   },
   server: {
-    allowedHosts: true,
+    allowedHosts: [
+      'skypulse-weather-app-vgw4.onrender.com',
+      '.onrender.com',
+    ],
   },
 })
